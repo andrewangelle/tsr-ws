@@ -1,5 +1,5 @@
 {
-  "name": "ts-template-node",
+  "name": "tsr-ws",
   "version": "1.0.0",
   "description": "",
   "keywords": [],
@@ -8,12 +8,15 @@
   "main": "index.ts",
   "type": "module",
   "scripts": {
-    "start": "node --experimental-strip-types ./src/index.ts",
-    "lint:fix": "pnpm exec biome check . --write",
-    "lint:check": "pnpm exec biome check .",
-    "format": "pnpm exec biome format . --write",
+    "dev": "vinxi dev --port=8080",
+    "build": "vinxi build",
+    "start": "vinxi start",
+    "lint:fix": "npx biome check . --write",
+    "lint:check": "npx biome check .",
+    "format": "npx biome format . --write",
     "pre-commit": "lint-staged",
-    "prepare": "husky"
+    "prepare": "husky",
+    "postinstall": "patch-package"
   },
   "husky": {
     "hooks": {
@@ -21,16 +24,31 @@
     }
   },
   "lint-staged": {
-    "*": ["pnpm lint:fix", "pnpm format"]
+    "*": [
+      "pnpm lint:fix",
+      "pnpm format"
+    ]
   },
   "devDependencies": {
     "@biomejs/biome": "^1.9.4",
+    "@tanstack/router-devtools": "^1.95.3",
     "@types/node": "^22.10.2",
+    "@types/react": "^19.0.4",
+    "@types/react-dom": "^19.0.2",
     "husky": "^9.1.7",
     "lint-staged": "^15.2.11",
-    "typescript": "^5.7.2"
+    "typescript": "^5.7.2",
+    "vite-tsconfig-paths": "^5.1.4"
   },
   "engines": {
     "node": ">=22.0.0"
+  },
+  "dependencies": {
+    "@tanstack/react-router": "^1.95.3",
+    "@tanstack/start": "^1.95.3",
+    "patch-package": "^8.0.0",
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0",
+    "vinxi": "^0.5.1"
   }
 }

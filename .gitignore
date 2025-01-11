@@ -2,3 +2,16 @@ node_modules
 dist
 build
 .env
+
+node_modules
+
+/.cache
+/build
+/public/build
+.env
+/.netlify
+.env
+.vinxi
+dist
+.output
+app/packages/*

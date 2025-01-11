@@ -1,12 +1,14 @@
 {
   "compilerOptions": {
     "jsx": "react-jsx",
-    "moduleResolution": "nodenext",
-    "module": "NodeNext",
-    "target": "ESNext",
+    "moduleResolution": "Bundler",
+    "module": "ESNext",
+    "target": "ES2022",
+    "skipLibCheck": true,
+    "strictNullChecks": true,
     "baseUrl": ".",
     "paths": {
-      "~/*": ["./src/*"]
-    }
-  }
+      "~/*": ["./app/*"]
+    },
+  },
 }
