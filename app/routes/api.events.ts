@@ -4,6 +4,15 @@ function getRandomMessage() {
   return `data: ${Math.floor(Math.random() * 1000) + 1}\n\n`;
 }
 export const APIRoute = createAPIFileRoute('/api/events')({
+  OPTIONS: () => {
+    return new Response(null, {
+      status: 200,
+      headers: {
+        'Access-Control-Allow-Headers': '*',
+        'Access-Control-Allow-Origin': '*',
+      },
+    });
+  },
   GET: () => {
     let message = getRandomMessage();
 
@@ -16,6 +25,8 @@ export const APIRoute = createAPIFileRoute('/api/events')({
         'Content-Type': 'text/event-stream',
         'Cache-Control': 'no-cache',
         Connection: 'keep-alive',
+        'Access-Control-Allow-Headers': '*',
+        'Access-Control-Allow-Origin': '*',
       },
     });
 
